@@ -1,0 +1,3 @@
+Project name: Phising link detector
+
+This package uses the final project name throughout the source files. The interface wording has been cleaned so it does not refer to old UI version labels or previous package names.
