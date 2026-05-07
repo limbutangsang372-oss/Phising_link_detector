@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phising link detector | CN6000</title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="top-nav container">
+      <div class="brand">
+        <span class="brand-mark">PLD</span>
+        <div>
+          <strong>Phising link detector</strong>
+          <small>CN6000 Cybersecurity Project</small>
+        </div>
+      </div>
+      <div class="nav-pills">
+        <a href="#analyzer">Analyzer</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#features">Features</a>
+        <a href="#ethics">Ethics</a>
+      </div>
+    </nav>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Machine Learning Prototype</p>
+        <h1>Phishing Detection Using Machine Learning</h1>
+        <p class="header-subtitle">
+          A project dashboard that analyses URL features and uses a trained Python machine learning model to classify phishing risk.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#analyzer">Test a URL</a>
+          <a class="secondary-link" href="#features">View methodology</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary-grid" aria-label="Project summary">
+      <article class="summary-card">
+        <span>Total Samples</span>
+        <strong id="totalSamples">24</strong>
+        <p>Dataset records</p>
+      </article>
+      <article class="summary-card">
+        <span>Phishing</span>
+        <strong id="phishingSamples">12</strong>
+        <p>Labelled phishing URLs</p>
+      </article>
+      <article class="summary-card">
+        <span>Legitimate</span>
+        <strong id="legitimateSamples">12</strong>
+        <p>Labelled safe URLs</p>
+      </article>
+      <article class="summary-card">
+        <span>ML Model</span>
+        <strong class="small-strong" id="modelName">Random Forest</strong>
+        <p>Trained detection model</p>
+      </article>
+    </section>
+
+    <section class="main-grid" id="analyzer">
+      <article class="panel analyzer-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Live Prediction</p>
+            <h2>URL Analyzer</h2>
+          </div>
+          <span class="status-pill" id="modelStatus">Checking model...</span>
+        </div>
+
+        <form id="predictionForm" class="prediction-form">
+          <label for="urlInput">Enter a URL to analyse</label>
+          <div class="input-row">
+            <input
+              id="urlInput"
+              name="url"
+              type="text"
+              placeholder="Example: http://verify-account-example-login.test/security-update"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Analyse</button>
+          </div>
+        </form>
+
+        <div id="resultBox" class="result-box empty">
+          <div class="empty-state">
+            <strong>No analysis yet</strong>
+            <p>Enter a URL and click Analyse to view the model prediction, confidence score, and extracted URL features.</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel context-panel">
+        <p class="eyebrow">Project Context</p>
+        <h2>Project Aim</h2>
+        <p>
+          This system demonstrates phishing URL detection by extracting measurable URL-based features
+          and applying a trained machine learning classifier.
+        </p>
+
+        <h3>Models Used</h3>
+        <ul class="clean-list">
+          <li>Logistic Regression</li>
+          <li>Random Forest</li>
+          <li>Simple Neural Network</li>
+          <li>Heuristic baseline comparison</li>
+        </ul>
+
+        <h3>Ethical Boundary</h3>
+        <p>
+          This prototype is for defensive analysis only. It does not send phishing emails,
+          collect credentials, or interact with real websites.
+        </p>
+      </aside>
+    </section>
+
+    <section class="panel dataset-panel" id="dataset">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Dataset</p>
+          <h2>Sample Records</h2>
+        </div>
+        <button class="secondary-button" id="refreshDataset">Refresh Dataset</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>URL</th>
+              <th>Label</th>
+              <th>Length</th>
+              <th>HTTPS</th>
+            </tr>
+          </thead>
+          <tbody id="datasetTable">
+            <tr>
+              <td>#1</td>
+              <td class="url-cell">http://secure-login-verification.example.com/account/update</td>
+              <td><span class="label-badge phishing">Phishing</span></td>
+              <td>58</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>#2</td>
+              <td class="url-cell">https://www.gov.uk/</td>
+              <td><span class="label-badge legitimate">Legitimate</span></td>
+              <td>19</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="info-grid" id="features">
+      <article class="panel">
+        <p class="eyebrow">Feature Extraction</p>
+        <h2>Features Used by the Model</h2>
+        <div class="feature-tags">
+          <span>URL length</span>
+          <span>Hostname length</span>
+          <span>Path length</span>
+          <span>HTTPS usage</span>
+          <span>IP address usage</span>
+          <span>Suspicious words</span>
+          <span>Dots and hyphens</span>
+          <span>@ symbols</span>
+          <span>Digits</span>
+          <span>Query length</span>
+        </div>
+      </article>
+
+      <article class="panel" id="ethics">
+        <p class="eyebrow">Ethics</p>
+        <h2>Safe Research Scope</h2>
+        <p>
+          The project uses public or demonstration datasets and does not collect passwords. Any awareness-training results should be presented as simulated unless ethics approval and consent were obtained.
+        </p>
+        <ol class="steps">
+          <li>Use public labelled datasets or approved lab data.</li>
+          <li>Do not target real users with phishing messages.</li>
+          <li>Anonymise any participant response data.</li>
+          <li>Report limitations clearly in the dissertation.</li>
+        </ol>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CN6000 Project Prototype · Detection and Analysis of Phishing Attacks Using Machine Learning</p>
+    </div>
+  </footer>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

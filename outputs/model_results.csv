@@ -1,0 +1,5 @@
+model,accuracy,precision,recall,f1_score
+Heuristic Baseline,1.0,1.0,1.0,1.0
+Logistic Regression,1.0,1.0,1.0,1.0
+Random Forest,1.0,1.0,1.0,1.0
+Simple Neural Network,1.0,1.0,1.0,1.0

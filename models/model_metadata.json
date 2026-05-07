@@ -1,0 +1,28 @@
+{
+  "model_name": "Logistic Regression",
+  "feature_columns": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "query_length",
+    "num_dots",
+    "num_hyphens",
+    "num_slashes",
+    "num_question_marks",
+    "num_equals",
+    "num_at_symbols",
+    "num_digits",
+    "uses_https",
+    "has_ip_address",
+    "subdomain_length",
+    "domain_length",
+    "tld_length",
+    "suspicious_word_count"
+  ],
+  "training_rows": 24,
+  "best_f1_score": 1.0,
+  "label_mapping": {
+    "0": "Legitimate",
+    "1": "Phishing"
+  }
+}
